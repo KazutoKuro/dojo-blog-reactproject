@@ -47,6 +47,7 @@ function App() {
       <Navbar />
       <div className="content">
         <Home />
+        
       </div>
     </div>
   );
