@@ -36,7 +36,28 @@
 
 // Vid-5: Multiple Components
 
-import './App.css';
+// import './App.css';
+// import Navbar from './Navbar';
+// import Home from './Home';
+
+// function App() {
+
+//   return (
+//     <div className="App">
+//       <Navbar />
+//       <div className="content">
+//         <Home />
+//       </div>
+//     </div>
+//   );
+// }
+
+// export default App;
+
+/////////////////////////////////////////////////////////////////////////////////////////////
+
+// Vid-6 Adding styles
+
 import Navbar from './Navbar';
 import Home from './Home';
 
