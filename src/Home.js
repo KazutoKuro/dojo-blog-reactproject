@@ -164,9 +164,45 @@
 // }
  
 // export default Home;
+
 /////////////////////////////////////////////////////////////////////////////////////////////
 
-//vid-14 - userEffect Hook (the basics)
+//vid-14 - useEffect Hook (the basics)
+
+// import { useState, useEffect } from 'react';
+// import BlogList from './BlogList';
+
+// const Home = () => {
+//     const [blogs, setBlogs] = useState([
+//         { title: 'My new website', body: 'lorem ipsum...', author: 'mario', id: 1 },
+//         { title: 'Welcome party!', body: 'lorem ipsum...', author: 'yoshi', id: 2 },
+//         { title: 'Web dev top tips', body: 'lorem ipsum...', author: 'mario', id: 3 }
+//         ]);
+
+//     const handleDelete = (id) => {
+//         const newBlogs = blogs.filter(blog => blog.id !== id ); // doesnt change origin blogs, true if the id doesnt match this coz we want to keep that in the array, false if the id does match this then we want to remove the blog 
+//         setBlogs(newBlogs);
+//     }
+
+//     useEffect(() => {
+//         console.log('use effect ran');
+//         console.log(blogs);
+//     });
+
+//     return ( 
+//         <div className="home">
+//             <BlogList blogs={blogs} title="All Blogs!" handleDelete={handleDelete}/> 
+            
+//         </div>
+//      );
+// }
+ 
+// export default Home;
+
+/////////////////////////////////////////////////////////////////////////////////////////////
+
+//vid-15 - useEffect Dependencies
+
 import { useState, useEffect } from 'react';
 import BlogList from './BlogList';
 
@@ -177,20 +213,24 @@ const Home = () => {
         { title: 'Web dev top tips', body: 'lorem ipsum...', author: 'mario', id: 3 }
         ]);
 
+    const [name, setName] = useState('mario');
+        
     const handleDelete = (id) => {
-        const newBlogs = blogs.filter(blog => blog.id !== id ); // doesnt change origin blogs, true if the id doesnt match this coz we want to keep that in the array, false if the id does match this then we want to remove the blog 
+        const newBlogs = blogs.filter(blog => blog.id !== id );
         setBlogs(newBlogs);
     }
 
     useEffect(() => {
         console.log('use effect ran');
-        console.log(blogs);
-    });
+        console.log(name);
+    }, [name]); 
+    //Note: Empty dependency arry is make sure that this hook right here only runs the function after the first initial render, if the state changes it won't run the function again, it only runs it once
 
     return ( 
         <div className="home">
             <BlogList blogs={blogs} title="All Blogs!" handleDelete={handleDelete}/> 
-            
+            <button onClick={() => setName('luigi')} >change name</button>
+            <p>{ name }</p>
         </div>
      );
 }
