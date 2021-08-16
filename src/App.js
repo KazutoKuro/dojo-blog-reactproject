@@ -58,18 +58,46 @@
 
 // Vid-6 Adding styles
 
+// import Navbar from './Navbar';
+// import Home from './Home';
+
+// function App() {
+
+//   return (
+//     <div className="App">
+//       <Navbar />
+//       <div className="content">
+//         <Home />
+//       </div>
+//     </div>
+//   );
+// }
+
+// export default App;
+
+/////////////////////////////////////////////////////////////////////////////////////////////
+
+// Vid-21 - The React Router
+
 import Navbar from './Navbar';
 import Home from './Home';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 function App() {
 
   return (
-    <div className="App">
-      <Navbar />
-      <div className="content">
-        <Home />
+    <Router>
+      <div className="App">
+        <Navbar />
+        <div className="content">
+          <Switch>
+            <Route path="/"> 
+              <Home />
+            </Route>
+          </Switch>
+        </div>
       </div>
-    </div>
+    </Router>
   );
 }
 
