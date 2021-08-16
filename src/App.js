@@ -139,10 +139,43 @@
 
 // Vid-23 - Router Links
 
+// import Navbar from './Navbar';
+// import Home from './Home';
+// import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+// import Create from './Create';
+
+// function App() {
+
+//   return (
+//     <Router>
+//       <div className="App">
+//         <Navbar />
+//         <div className="content">
+//           <Switch>
+//             <Route exact path="/"> 
+//               <Home />
+//             </Route>
+//             <Route path="/create"> 
+//               <Create />
+//             </Route>
+//           </Switch>
+//         </div>
+//       </div>
+//     </Router>
+//   );
+// }
+
+// export default App;
+
+/////////////////////////////////////////////////////////////////////////////////////////////
+
+// Vid-25 - Router Parameters
+
 import Navbar from './Navbar';
 import Home from './Home';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Create from './Create';
+import BlogDetails from './BlogDetails';
 
 function App() {
 
@@ -157,6 +190,9 @@ function App() {
             </Route>
             <Route path="/create"> 
               <Create />
+            </Route>
+            <Route path="/blogs/:id"> {/* u can call it whatever u want for the id name */}
+              <BlogDetails />
             </Route>
           </Switch>
         </div>
